@@ -2,6 +2,8 @@
 
 ## cmd.action.other.BB_ToggleSwitch_CSS.html
 
+--> <a href="https://github.com/biggranben/BB_Widget/blob/main/dashboard/cmd.action.other.BB_ToggleSwitch_CSS.html">cmd.action.other.BB_ToggleSwitch_CSS.html</a>
+
 Bouton simple type Toggle Switch en CSS :
 
 ![Alt text](doc/images/BB_ToggleSwitch_CSS_on.jpg?raw=true "ON")
