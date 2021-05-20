@@ -1,4 +1,4 @@
-# Widget pour Jeedom
+# Widgets pour Jeedom
 
 ## cmd.action.other.BB_ToggleSwitch_CSS.html
 
