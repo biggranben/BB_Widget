@@ -1,6 +1,6 @@
 # Widgets pour Jeedom
 
-## cmd.action.other.BB_ToggleSwitch_CSS.html
+## BB_ToggleSwitch_CSS
 
 --> <a href="https://github.com/biggranben/BB_Widget/blob/main/dashboard/cmd.action.other.BB_ToggleSwitch_CSS.html">cmd.action.other.BB_ToggleSwitch_CSS.html</a>
 
