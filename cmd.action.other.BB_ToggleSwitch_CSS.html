@@ -1,0 +1,140 @@
+<div class="cmd #history# tooltips cmd-widget container-fluid" data-type="action" data-subtype="default" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#">
+	<div class="row" align="center">
+		<div class="cmdName" style="font-weight: bold;font-size : 12px; #hideCmdName#">#valueName#</div>  
+     	<div><label class="switch#uid#">
+        	<input class="toggle#uid#" type="checkbox">
+          	<span class="slider#uid# fas"></span>
+        </label></div>
+	</div>
+    <style>
+      :root {
+        --buttonWidth#uid# : 50px;
+        --buttonHeight#uid# : 20px;
+        --buttonMargin#uid# : 4px;
+        --colorOFF#uid# : var(--al-danger-color);
+        --colorON#uid# : var(--bt-success-color);
+        --colorOFFback#uid# : linear-gradient(to top,rgba(0, 0, 0,30%),rgba(0, 0, 0,30%))var(--colorOFF#uid#);
+        --colorONback#uid# : linear-gradient(to top,rgba(0, 0, 0,30%),rgba(0, 0, 0,30%))var(--colorON#uid#);
+        --transition#uid#: all .4s ease;
+        --logoON#uid#: "\f00c";
+        --logoOFF#uid#: "\f00d";
+      }	
+      .switch#uid# {
+        position: relative;
+        display: inline-block;
+        width: var(--buttonWidth#uid#);
+        height: var(--buttonHeight#uid#);
+        margin: 5px;
+      }
+      .switch#uid# input {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;          
+      }
+
+      .slider#uid# {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--colorOFFback#uid#);
+        -webkit-transition: var(--transition#uid#);
+        transition: var(--transition#uid#);      
+        border-radius: calc(var(--buttonHeight#uid#)/2);    
+      }
+
+      .slider#uid#:before {
+        display: flex;
+        position: absolute;
+        margin-left: calc(var(--buttonMargin#uid#)/2);
+        margin-top: calc(var(--buttonMargin#uid#)/2);
+        justify-content: center;
+        align-items: center;
+        width: calc(var(--buttonHeight#uid#) - var(--buttonMargin#uid#));
+        height: calc(var(--buttonHeight#uid#) - var(--buttonMargin#uid#));
+        background: var(--colorOFF#uid#);
+        border-radius: 50%;
+        box-shadow: 0 0 8px rgba(0,0,0,0.3);
+        transition: var(--transition#uid#);
+        content: var(--logoOFF#uid#);
+        color: white;
+        font-size: calc(var(--buttonHeight#uid#) * 0.6);
+        font-weight: bold;
+      }
+
+      input:checked + .slider#uid# {
+        background: var(--colorONback#uid#);
+      }
+
+      input:checked + .slider#uid#:before {
+        content: var(--logoON#uid#);
+        background: var(--colorON#uid#);
+        margin-left: calc(var(--buttonWidth#uid#) - var(--buttonHeight#uid#) + var(--buttonMargin#uid#)/2 );
+      }
+  </style>
+      <script>
+        jeedom.cmd.update['#id#'] = function(_options){
+            
+          if ('#colorON#'.match(/#\w+#/i) == null) {
+            document.documentElement.style.setProperty('--colorON#uid#', '#colorON#');
+          }
+          
+          if ('#colorONback#'.match(/#\w+#/i) == null) {
+            document.documentElement.style.setProperty('--colorONback#uid#', '#colorONback#');
+          }
+          
+          if ('#colorOFF#'.match(/#\w+#/i) == null) {
+            document.documentElement.style.setProperty('--colorOFF#uid#', '#colorOFF#');
+          }
+          
+          if ('#colorOFFback#'.match(/#\w+#/i) == null) {
+            document.documentElement.style.setProperty('--colorOFFback#uid#', '#colorOFFback#');
+          }
+          
+          if ('#width#'.match(/#\w+#/i) == null) {
+            document.documentElement.style.setProperty('--buttonWidth#uid#', '#width#');
+          }
+          
+          if ('#height#'.match(/#\w+#/i) == null) {
+            document.documentElement.style.setProperty('--buttonHeight#uid#', '#height#');
+          }
+          
+          if ('#margin#'.match(/#\w+#/i) == null) {
+            document.documentElement.style.setProperty('--buttonMargin#uid#', '#margin#');
+          }
+          
+          if ('#logoON#'.match(/#\w+#/i) == null) {
+            document.documentElement.style.setProperty('--logoON#uid#', '"\\'+'#logoON#'+'"');
+          }
+          
+          if ('#logoOFF#'.match(/#\w+#/i) == null) {
+            document.documentElement.style.setProperty('--logoOFF#uid#', '#logoOFF#');
+          }
+
+          if (_options.display_value == '1' || _options.display_value == 1 || _options.display_value == '99' || _options.display_value == 99 || _options.display_value == 'on') {
+            if (jeedom.cmd.normalizeName('#name#') == 'on') {
+              $('.cmd[data-cmd_id=#id#]').hide();
+              $('.toggle#uid#').prop('checked', false);   
+            }else{
+              $('.cmd[data-cmd_id=#id#]').show();
+              $('.toggle#uid#').prop('checked', true);    
+            }
+          } else {
+            if (jeedom.cmd.normalizeName('#name#') == 'off') {
+              $('.cmd[data-cmd_id=#id#]').hide();
+              $('.toggle#uid#').prop('checked', true);  
+            }else{
+              $('.cmd[data-cmd_id=#id#]').show();
+              $('.toggle#uid#').prop('checked', false);     
+            }
+          }
+
+        }
+        jeedom.cmd.update['#id#']({display_value:'#state#'});
+        $('.cmd[data-cmd_uid=#uid#] .switch#uid#').off().on('click', function () {
+            jeedom.cmd.execute({id: '#id#'});
+        });
+    </script>
+</div>
