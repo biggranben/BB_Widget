@@ -58,3 +58,5 @@ Presque entièrement personnalisable :
 - height : hauteur, par défaut : 18px
 - border : taille de la bordure du bouton, par défaut : 1px
 - gradient : couleur du gradient pour le bouton et le contour, par défaut : #e1e1e1
+
+![Alt text](doc/images/BB_ToggleSwitch_CSS2_param.jpg?raw=true "Param")
