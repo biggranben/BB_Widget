@@ -1,0 +1,219 @@
+<div class="cmd #history# tooltips cmd-widget container-fluid" data-type="action" data-subtype="default" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#">
+  <div class="row" align="center">
+    <div class="cmdName" style="#hideCmdName#">#valueName#</div>  
+    <div>      
+      <label class="switch#uid#">
+        <input type="checkbox" class="switch-input#uid#">
+        <span class="switch-label#uid#" data-on="On" data-off="Off"></span>
+        <span class="switch-handle#uid#"></span>
+      </label>
+    </div>
+  </div>
+  <style>
+    :root {
+      --buttonWidth#uid# : 55px;
+      --buttonHeight#uid# : 18px;
+      --buttonBorder#uid# : 1px;
+      --colorOFF#uid# : #eceeef;
+      --colorON#uid# : var(--bt-success-color);
+      --colorTextOFF#uid# : var(--al-danger-color);
+      --colorTextON#uid# : #425c0a;
+      --colorGradient#uid# : #e1e1e1;
+    }
+
+    .switch#uid# {
+      font: 13px/20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      width: var(--buttonWidth#uid#);
+      height: var(--buttonHeight#uid#);
+      padding: var(--buttonBorder#uid#);
+      background-color: white;
+      border-radius: calc(var(--buttonHeight#uid#) - 2px);
+      box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      box-sizing: unset;
+      margin: 5px;
+      background-image: -webkit-linear-gradient(top, var(--colorGradient#uid#), white calc(var(--buttonHeight#uid#)/2));
+      background-image: -moz-linear-gradient(top, var(--colorGradient#uid#), white calc(var(--buttonHeight#uid#)/2));
+      background-image: -o-linear-gradient(top, var(--colorGradient#uid#), white calc(var(--buttonHeight#uid#)/2));
+      background-image: linear-gradient(to bottom, var(--colorGradient#uid#), white calc(var(--buttonHeight#uid#)/2));
+    }
+
+    .switch-input#uid# {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      z-index: -1;
+    }
+    
+    .switch#uid# input {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;          
+      }
+
+    .switch-label#uid# {
+      position: relative;
+      display: block;
+      height: inherit;
+      font-size: calc(var(--buttonHeight#uid#)/2);
+      text-transform: uppercase;
+      background: var(--colorOFF#uid#);
+      border-radius: inherit;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
+      -webkit-transition: 0.15s ease-out;
+      -moz-transition: 0.15s ease-out;
+      -o-transition: 0.15s ease-out;
+      transition: 0.15s ease-out;
+      -webkit-transition-property: opacity background;
+      -moz-transition-property: opacity background;
+      -o-transition-property: opacity background;
+      transition-property: opacity background;
+    }
+    .switch-label#uid#:before, .switch-label#uid#:after {
+      position: absolute;
+      top: 50%;
+      margin-top: -.5em;
+      line-height: 1;
+      -webkit-transition: inherit;
+      -moz-transition: inherit;
+      -o-transition: inherit;
+      transition: inherit;
+    }
+    .switch-label#uid#:before {
+      content: attr(data-off);
+      right: calc(var(--buttonHeight#uid#)/2);
+      color: var(--colorTextOFF#uid#);
+      text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+    }
+    .switch-label#uid#:after {
+      content: attr(data-on);
+      left: calc(var(--buttonHeight#uid#)/2);
+      color: var(--colorTextON#uid#);
+      text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+    }
+    .switch-input#uid#:checked ~ .switch-label#uid# {
+      background: var(--colorON#uid#);
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
+    }
+    .switch-input#uid#:checked ~ .switch-label#uid#:before {
+      opacity: 0;
+    }
+    .switch-input#uid#:checked ~ .switch-label#uid#:after {
+      opacity: 1;
+    }
+
+    .switch-handle#uid# {
+      position: absolute;
+      top: calc(var(--buttonBorder#uid#) + 1px);
+      left: calc(var(--buttonBorder#uid#) + 1px);
+      width: calc(var(--buttonHeight#uid#) - 2px);
+      height: calc(var(--buttonHeight#uid#) - 2px);
+      background: white;
+      border-radius: calc(var(--buttonHeight#uid#) / 2);
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+      background-image: -webkit-linear-gradient(top, white 40%, var(--colorGradient#uid#));
+      background-image: -moz-linear-gradient(top, white 40%, var(--colorGradient#uid#));
+      background-image: -o-linear-gradient(top, white 40%, var(--colorGradient#uid#));
+      background-image: linear-gradient(to bottom, white 40%, var(--colorGradient#uid#));
+      -webkit-transition: left 0.15s ease-out;
+      -moz-transition: left 0.15s ease-out;
+      -o-transition: left 0.15s ease-out;
+      transition: left 0.15s ease-out;
+    }
+    .switch-handle#uid#:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: calc(-1 * var(--buttonHeight#uid#)/10*3) 0 0 calc(-1 * var(--buttonHeight#uid#)/10*3);
+      width: calc(var(--buttonHeight#uid#)/5*3);
+      height: calc(var(--buttonHeight#uid#)/5*3);
+      background: var(--colorOFF#uid#);
+      border-radius: calc(var(--buttonHeight#uid#)/10*3);
+      box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+      background-image: -webkit-linear-gradient(top, var(--colorGradient#uid#), white);
+      background-image: -moz-linear-gradient(top, var(--colorGradient#uid#), white);
+      background-image: -o-linear-gradient(top, var(--colorGradient#uid#), white);
+      background-image: linear-gradient(to bottom, var(--colorGradient#uid#), white);
+    }
+    .switch-input#uid#:checked ~ .switch-handle#uid# {
+      left: calc(var(--buttonWidth#uid#) - var(--buttonHeight#uid#) + var(--buttonBorder#uid#) + 1px);
+      box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+    }
+
+  </style>
+  <script>
+    jeedom.cmd.update['#id#'] = function(_options){
+      
+      if ('#colorON#'.match(/#\w+#/i) == null) {
+        document.documentElement.style.setProperty('--colorON#uid#', '#colorON#');
+      }
+
+      if ('#colorTextON#'.match(/#\w+#/i) == null) {
+        document.documentElement.style.setProperty('--colorTextON#uid#', '#colorTextON#');
+      }
+      
+      if ('#textON#'.match(/#\w+#/i) == null) {
+        document.getElementsByClassName('switch-label#uid#')[0].setAttribute('data-on', '#textON#');
+      }
+
+      if ('#colorOFF#'.match(/#\w+#/i) == null) {
+        document.documentElement.style.setProperty('--colorOFF#uid#', '#colorOFF#');
+      }
+
+      if ('#colorTextOFF#'.match(/#\w+#/i) == null) {
+        document.documentElement.style.setProperty('--colorTextOFF#uid#', '#colorTextOFF#');
+      }
+      
+      if ('#textOFF#'.match(/#\w+#/i) == null) {
+        document.getElementsByClassName('switch-label#uid#')[0].setAttribute('data-off', '#textOFF#');
+      }
+
+      if ('#width#'.match(/#\w+#/i) == null) {
+        document.documentElement.style.setProperty('--buttonWidth#uid#', '#width#');
+      }
+
+      if ('#height#'.match(/#\w+#/i) == null) {
+        document.documentElement.style.setProperty('--buttonHeight#uid#', '#height#');
+      }
+
+      if ('#border#'.match(/#\w+#/i) == null) {
+        document.documentElement.style.setProperty('--buttonBorder#uid#', '#border#');
+      }
+      
+      if ('#gradient#'.match(/#\w+#/i) == null) {
+        document.documentElement.style.setProperty('--colorGradient#uid#', '#gradient#');
+      }
+
+
+      if (_options.display_value == '1' || _options.display_value == 1 || _options.display_value == '99' || _options.display_value == 99 || _options.display_value == 'on') {
+        if (jeedom.cmd.normalizeName('#name#') == 'on') {
+          $('.cmd[data-cmd_id=#id#]').hide();
+          $('.switch-input#uid#').prop('checked', false);   
+        }else{
+          $('.cmd[data-cmd_id=#id#]').show();
+          $('.switch-input#uid#').prop('checked', true);    
+        }
+      } else {
+        if (jeedom.cmd.normalizeName('#name#') == 'off') {
+          $('.cmd[data-cmd_id=#id#]').hide();
+          $('.switch-input#uid#').prop('checked', true);  
+        }else{
+          $('.cmd[data-cmd_id=#id#]').show();
+          $('.switch-input#uid#').prop('checked', false);     
+        }
+      }
+
+    }
+    jeedom.cmd.update['#id#']({display_value:'#state#'});
+    $('.cmd[data-cmd_uid=#uid#] .switch#uid#').off().on('click', function () {
+      jeedom.cmd.execute({id: '#id#'});
+    });
+  </script>
+</div>
