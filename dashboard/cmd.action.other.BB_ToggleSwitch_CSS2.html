@@ -1,4 +1,17 @@
 <div class="cmd #history# tooltips cmd-widget container-fluid" data-type="action" data-subtype="other" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#">
+  <template>	
+    <div>colorON : couleur ON</div>
+    <div>colorTextON : couleur du text ON</div>
+    <div>textON : text ON</div>
+    <div>colorOFF : couleur OFF</div>
+    <div>colorTextOFF : couleur du texte OFF</div>
+    <div>textOFF : texte OFF</div>
+    <div>width : largeur du bouton</div>
+    <div>height : heuteur du bouton</div>
+    <div>border : taille de la bordure</div>
+    <div>gradient : gradient</div>
+    <div>fontsize : taille du texte</div>
+  </template>	
   <div>
     <div class="cmdName" style="#hideCmdName#">#valueName#</div>  
     <div>      
@@ -19,6 +32,7 @@
       --colorTextOFF#uid# : var(--al-danger-color);
       --colorTextON#uid# : #425c0a;
       --colorGradient#uid# : #e1e1e1;
+      --fontsizeText#uid# : calc(var(--buttonHeight#uid#)/1.8);
     }
 
     .switch#uid# {
@@ -60,7 +74,7 @@
       position: relative;
       display: block;
       height: inherit;
-      font-size: calc(var(--buttonHeight#uid#)/1.8);
+      font-size: var(--fontsizeText#uid#);
       text-transform: uppercase;
       background: var(--colorOFF#uid#);
       border-radius: inherit;
@@ -191,6 +205,9 @@
         document.documentElement.style.setProperty('--colorGradient#uid#', '#gradient#');
       }
 
+      if ('#fontsize#'.match(/#\w+#/i) == null && parseInt('#fontsize#') < parseInt(document.documentElement.style.getPropertyValue('--buttonHeight#uid#'))/1.8) {
+        document.documentElement.style.setProperty('--fontsizeText#uid#', '#fontsize#');
+      }
 
       if (_options.display_value == '1' || _options.display_value == 1 || _options.display_value == '99' || _options.display_value == 99 || _options.display_value == 'on') {
         if (jeedom.cmd.normalizeName('#name#') == 'on') {
