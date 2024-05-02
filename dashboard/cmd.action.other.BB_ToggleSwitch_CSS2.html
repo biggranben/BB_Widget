@@ -1,4 +1,4 @@
-<div class="cmd #history# tooltips cmd-widget container-fluid" data-type="action" data-subtype="other" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#">
+<div class="cmd #history# tooltips cmd-widget" data-type="action" data-subtype="other" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#">
   <template>	
     <div>colorON : couleur ON</div>
     <div>colorTextON : couleur du text ON</div>
@@ -7,13 +7,15 @@
     <div>colorTextOFF : couleur du texte OFF</div>
     <div>textOFF : texte OFF</div>
     <div>width : largeur du bouton</div>
-    <div>height : heuteur du bouton</div>
+    <div>height : hauteur du bouton</div>
     <div>border : taille de la bordure</div>
     <div>gradient : gradient</div>
     <div>fontsize : taille du texte</div>
   </template>	
   <div>
-    <div class="cmdName" style="#hideCmdName#">#valueName#</div>  
+    <div class="title #hide_name#">
+      <div class="cmdName">#valueName#</div>
+    </div>
     <div>      
       <label class="switch#uid#">
         <input type="checkbox" class="switch-input#uid#">
