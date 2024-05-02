@@ -7,7 +7,7 @@
     <div>colorTextOFF : couleur du texte OFF</div>
     <div>textOFF : texte OFF</div>
     <div>width : largeur du bouton</div>
-    <div>height : hauteur du bouton</div>
+    <div>height : heuteur du bouton</div>
     <div>border : taille de la bordure</div>
     <div>gradient : gradient</div>
     <div>fontsize : taille du texte</div>
@@ -105,13 +105,11 @@
       content: attr(data-off);
       right: calc(var(--buttonHeight#uid#)/2);
       color: var(--colorTextOFF#uid#);
-      text-shadow: 0 1px rgba(255, 255, 255, 0.5);
     }
     .switch-label#uid#:after {
       content: attr(data-on);
       left: calc(var(--buttonHeight#uid#)/2);
       color: var(--colorTextON#uid#);
-      text-shadow: 0 1px rgba(0, 0, 0, 0.2);
       opacity: 0;
     }
     .switch-input#uid#:checked ~ .switch-label#uid# {
